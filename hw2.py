@@ -121,7 +121,6 @@ def compute_tf(doc: Document, doc_freqs: Dict[str, int], weights: list):
         vec[word] += weights.title
     for word in doc.abstract:
         vec[word] += weights.abstract
-    print(dict(vec))
     return dict(vec)  # convert back to a regular dict
 
 def compute_tfidf(doc, doc_freqs, weights):
@@ -155,6 +154,10 @@ def cosine_sim(x, y):
     if num == 0:
         return 0
     return num / (norm(list(x.values())) * norm(list(y.values())))
+
+    # Suggestion: the computation of cosine similarity can be made more ecient by precomputing and
+    # storing the sum of the squares of the term weights for each vector, as these are constants across vector
+    # similarity comparisons.
 
 def dice_sim(x, y):
     num = dictdot(x,y)
@@ -204,7 +207,10 @@ def mean_precision1(results, relevant):
         precision_at(0.75, results, relevant)) / 3
 
 def mean_precision2(results, relevant):
-    return 0  # TODO: implement
+    precision = 0
+    for i in range(1, 11):
+        precision += precision_at(i / 10, results, relevant)
+    return precision
 
 def norm_recall(results, relevant):
     return 0  # TODO: implement
