@@ -124,16 +124,47 @@ def compute_tf(doc: Document, doc_freqs: Dict[str, int], weights: list):
     return dict(vec)  # convert back to a regular dict
 
 def compute_tfidf(doc, doc_freqs, weights):
-    # wt(t,d) = TFt,d * log(N/DFt)
+    N = max(doc_freqs.values())
+    freq = doc_freqs
     tf = compute_tf(doc, doc_freqs, weights)
+    
+    vec = defaultdict(float)
 
-    return {}  # TODO: implement
-    # doc_freq method
+    for word in doc.author:
+        vec[word] += tf[word] * np.log2(N / freq[word])
+    for word in doc.keyword:
+        vec[word] += tf[word] * np.log2(N / freq[word])
+    for word in doc.title:
+        vec[word] += tf[word] * np.log2(N / freq[word])
+    for word in doc.abstract:
+        vec[word] += tf[word] * np.log2(N / freq[word])
+
+    return dict(vec)
 
 def compute_boolean(doc, doc_freqs, weights):
-    # wt(t,d) = 1 if term t is present in doc d, 0 if absent
-        
-    return {}  # TODO: implement
+    vec = defaultdict(bool)
+    for word in doc.author:
+        if doc_freqs[word] > 0:
+            vec[word] == 1
+        else:
+            vec[word] == 0
+    for word in doc.keyword:
+        if doc_freqs[word] > 0:
+            vec[word] == 1
+        else:
+            vec[word] == 0
+    for word in doc.title:
+        if doc_freqs[word] > 0:
+            vec[word] == 1
+        else:
+            vec[word] == 0
+    for word in doc.abstract:
+        if doc_freqs[word] > 0:
+            vec[word] == 1
+        else:
+            vec[word] == 0
+
+    return dict(vec)
 
 
 
@@ -198,6 +229,10 @@ def precision_at(recall: float, results: List[int], relevant: List[int]) -> floa
 
     `results` is a sorted list of document ids
     `relevant` is a list of relevant documents
+
+    # piazza 44
+    # want to be able to do it for arbitrary recall (10, 30, etc.)
+
     '''
     return 1  # TODO: implement
 
@@ -210,9 +245,15 @@ def mean_precision2(results, relevant):
     precision = 0
     for i in range(1, 11):
         precision += precision_at(i / 10, results, relevant)
-    return precision
+    return precision  / 10
 
 def norm_recall(results, relevant):
+    for doc in relevant:
+
+    # account for rankings starting at 1
+
+    N = len(results)
+    Rel = len(relevant)
     return 0  # TODO: implement
 
 def norm_precision(results, relevant):
