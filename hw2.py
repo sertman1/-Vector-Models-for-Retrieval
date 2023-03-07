@@ -8,6 +8,8 @@ from numpy.linalg import norm
 from nltk.stem.snowball import SnowballStemmer
 from nltk.tokenize import word_tokenize
 
+import math
+
 ### File IO and processing
 
 class Document(NamedTuple):
@@ -248,16 +250,28 @@ def mean_precision2(results, relevant):
     return precision  / 10
 
 def norm_recall(results, relevant):
+    sum_of_ranks = 0
     for doc in relevant:
-
-    # account for rankings starting at 1
+        sum_of_ranks += results[doc] + 1 # add 1 since ranks are counted from 1 not 0 and are thus offset by -1 
+    for i in range(1, Rel):
+        i += i
 
     N = len(results)
     Rel = len(relevant)
-    return 0  # TODO: implement
+
+    return 1 - (sum_of_ranks - i)/(Rel*(N-Rel))
 
 def norm_precision(results, relevant):
-    return 0  # TODO: implement
+    sum_of_ranks = 0
+    for doc in relevant:
+        sum_of_ranks += np.log2(results[doc] + 1) # add 1 since ranks are counted from 1 not 0 and are thus offset by -1 
+    for i in range(1, Rel):
+        i += np.log2(i)
+
+    N = len(results)
+    Rel = len(relevant)
+
+    return 1 - (sum_of_ranks - i)  / (np.log(math.factorial(N)) / (math.factorial(N - Rel)) * math.factorial(Rel))
 
 
 ### Extensions
