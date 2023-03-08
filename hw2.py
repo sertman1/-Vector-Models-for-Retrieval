@@ -4,7 +4,6 @@ from collections import Counter, defaultdict
 from typing import Dict, List, NamedTuple
 
 import numpy as np
-import math
 from numpy.linalg import norm
 from nltk.stem.snowball import SnowballStemmer
 from nltk.tokenize import word_tokenize
