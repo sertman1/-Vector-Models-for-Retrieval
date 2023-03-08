@@ -242,12 +242,14 @@ def precision_at(recall: float, results: List[int], relevant: List[int]) -> floa
     # want to be able to do it for arbitrary recall (10, 30, etc.)
 
     '''
+    if recall == 0: # precision always 0 if recall is
+        return 0 
+
     recalls = get_recalls(results, relevant)
 
     if recall in recalls:
         num_relevant = len(relevant)
         k = num_relevant * recall # number of correctly retrieved docs
-        
         num_to_retrieve = 0
         counter = 0
         while counter < k:
