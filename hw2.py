@@ -220,7 +220,7 @@ def interpolate(x1, y1, x2, y2, x):
 def get_recalls(results: List[int], relevant: List[int]):
     recalls = list()
     num_relevant = len(relevant)
-    for k in range(1, len(relevant) + 1):
+    for k in range(0, len(relevant) + 1):
         recalls.append(k / num_relevant)
     return recalls
 
@@ -243,20 +243,32 @@ def precision_at(recall: float, results: List[int], relevant: List[int]) -> floa
 
     '''
     recalls = get_recalls(results, relevant)
+
     if recall in recalls:
         num_relevant = len(relevant)
         k = num_relevant * recall # number of correctly retrieved docs
         
-        B = math.ceil(num_relevant * recall) # cannot retrieve a fraction of a document
+        num_to_retrieve = 0
+        counter = 0
+        while counter < k:
+            if results[num_to_retrieve] in relevant:
+                counter += 1
+            num_to_retrieve += 1
 
+        B = k
 
-        C = len(results)
-
-        precision = B / (B + C)
+        precision = B / num_to_retrieve
         return precision
     
     else: # interpolate case
-        return 0
+        # determine two closest recalls:
+        i = 0
+        while recalls[i] < recall:
+            i += 1
+        
+        return interpolate(recalls[i - 1], precision_at(recalls[i - 1], results, relevant), 
+                           recalls[i], precision_at(recalls[i], results, relevant),
+                           recall)
 
 def mean_precision1(results, relevant):
     return (precision_at(0.25, results, relevant) +
