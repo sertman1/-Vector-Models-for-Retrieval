@@ -216,6 +216,11 @@ def interpolate(x1, y1, x2, y2, x):
     b = y1 - m * x1
     return m * x + b
 
+def need_to_interpolate():
+
+
+    return 0
+
 def precision_at(recall: float, results: List[int], relevant: List[int]) -> float:
     '''
     This function should compute the precision at the specified recall level.
@@ -234,7 +239,13 @@ def precision_at(recall: float, results: List[int], relevant: List[int]) -> floa
     # want to be able to do it for arbitrary recall (10, 30, etc.)
 
     '''
-    return 1  # TODO: implement
+    Rel = len(relevant)
+    B = Rel * recall
+
+    C = len(results)
+
+    precision = B / (B + C)
+    return precision
 
 def mean_precision1(results, relevant):
     return (precision_at(0.25, results, relevant) +
