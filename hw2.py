@@ -4,6 +4,7 @@ from collections import Counter, defaultdict
 from typing import Dict, List, NamedTuple
 
 import numpy as np
+import math
 from numpy.linalg import norm
 from nltk.stem.snowball import SnowballStemmer
 from nltk.tokenize import word_tokenize
@@ -216,10 +217,12 @@ def interpolate(x1, y1, x2, y2, x):
     b = y1 - m * x1
     return m * x + b
 
-def need_to_interpolate():
-
-
-    return 0
+def get_recalls(results: List[int], relevant: List[int]):
+    recalls = list()
+    num_relevant = len(relevant)
+    for k in range(1, len(relevant) + 1):
+        recalls.append(k / num_relevant)
+    return recalls
 
 def precision_at(recall: float, results: List[int], relevant: List[int]) -> float:
     '''
@@ -239,13 +242,21 @@ def precision_at(recall: float, results: List[int], relevant: List[int]) -> floa
     # want to be able to do it for arbitrary recall (10, 30, etc.)
 
     '''
-    Rel = len(relevant)
-    B = Rel * recall
+    recalls = get_recalls(results, relevant)
+    if recall in recalls:
+        num_relevant = len(relevant)
+        k = num_relevant * recall # number of correctly retrieved docs
+        
+        B = math.ceil(num_relevant * recall) # cannot retrieve a fraction of a document
 
-    C = len(results)
 
-    precision = B / (B + C)
-    return precision
+        C = len(results)
+
+        precision = B / (B + C)
+        return precision
+    
+    else: # interpolate case
+        return 0
 
 def mean_precision1(results, relevant):
     return (precision_at(0.25, results, relevant) +
