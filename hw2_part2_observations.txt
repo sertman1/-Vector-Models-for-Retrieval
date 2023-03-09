@@ -1,0 +1,94 @@
+Conclusions:
+1. Term weighting permutations: TF-IDF is the definitive best choice
+2. Similarity measures: Cosine, Dice and Jaccard equal and superior to Overlap
+3. Stemming: FALSE (not stemming) is better
+4. Stop words: TRUE (removing stopwords) is better
+5. Region weighting: optimal choice depended on desired precision. 1,1,1,1 performed best on average though.
+
+My inquiry:
+
+Running my implementation across all possible permutations, I yielded the results shown in output.tsv
+
+From these results, the first thing I immediately differentiated by was term weighting. No matter what
+other model parameters were used, boolean weighting performed worse than tf weighting which performed  
+drastically worse than tf-idf. Take the following results for example:
+
+boolean False   False   cosine  1,1,1,4 0.0023  0.0031  0.0039  0.0044  0.0031  0.0032  0.2786  0.0677
+tf      False   False   cosine  1,1,1,4 0.0460  0.0217  0.0143  0.0061  0.0273  0.0289  0.5164  0.1595
+tfidf   False   False   cosine  1,1,1,4 0.3227  0.2102  0.1233  0.0880  0.2187  0.2091  0.5146  0.1586
+
+For p_0.25, for example, tf was just 0.0186 better than boolean, whereas tfidf was 0.2997 better than boolean. 
+This is a factor of over 16 times greater. Since all other parameters were held constant, this gives 
+definitive evidence that tfidf is, without contest, the superior term weighting approach. From there on out,
+I tested permutations, keeping tfidf as a constant (term weighting) parameter.
+
+I think that the reason boolean weighting performed the worst is because the simple fact of wheter or not 
+a word occurs in a document does not reveal a lot of specific information about the document. For example, a 
+document discussing school curricula could mention "comptuer science" once and it would be weighted the
+same as a paper discussing pedagogy of computer science that mentions "computer science" 10s of times. 
+Clearly, if someone queried to learn about "computer science," then the latter document would be much more
+relevant, given the far greater instances of the term. As such, term frequency performed better than boolean:
+the actual number of instances is far more revealing and specifying than simply wheter or not there was at 
+least one instance. 
+The reason tfidf performed significantly better than tf is because it corrects tf's weakness of putting
+significant weight on highly common terms. Mathematically, tfidf is tf except we multiply by the factor
+log(number of documents / frequency of the term). Therefore, if the term is present among multiple documents, 
+the terms weighting will be decreased. This is an improvement, since if the term is highly present across
+multiple documents, then it is not a very revealing term about a particular type of document and thus it 
+should not be weighted as highly as it would have been with just tf weighting. Tfidf effectively makes
+non-revealing, common terms weighted less than tf, and as such it performs much better than tf.
+
+To test other permutations, I here on out only considered tfidf given its obvious superiority.
+I next considered the similarity measures. Keeping all other model parameters constant and just altering
+the similarity measures, I yieled the following results.
+
+tfidf	False	False	cosine	1,1,1,1	0.2820	0.1774	0.0947	0.0306	0.1847	0.1706	0.5423	0.1722
+tfidf	False	False	jaccard	1,1,1,1	0.2820	0.1774	0.0947	0.0306	0.1847	0.1706	0.5423	0.1722
+tfidf	False	False	dice	1,1,1,1	0.2820	0.1774	0.0947	0.0306	0.1847	0.1706	0.5423	0.1722
+tfidf	False	False	overlap	1,1,1,1	0.1512	0.0954	0.0445	0.0078	0.0970	0.0905	0.5455	0.1684
+
+Suprisingly, cosine jaccard and dice all yeileded identical results. Overlap performed significantly
+worse than these three. I thought that this might've been caused by other parameters and that perhaps
+by looking at other permutations I would find a distinct optimal similarity among these three. This was
+not the case. When all other factors were held constant, cosine jaccard and dice always performed 
+equally with overlap being a definitive worst choice. From here, I looked strictly at TF-IDF cosine,
+jaccard and dice permutations to determine optimal parameters.
+
+In terms of stemming, I compared the following results agaisnt those above to determine its effectiveness:
+
+tfidf	True	False	cosine	1,1,1,1	0.2662	0.1807	0.0957	0.0421	0.1809	0.1746	0.5444	0.1659
+tfidf	True	False	jaccard	1,1,1,1	0.2662	0.1807	0.0957	0.0421	0.1809	0.1746	0.5444	0.1659
+tfidf	True	False	dice	1,1,1,1	0.2662	0.1807	0.0957	0.0421	0.1809	0.1746	0.5444	0.1659
+
+Once again, cosine jaccard and dice all performed equally. Compared with the stem=FALSE results above,
+stemming actually made the results worse. For example, at p_0.25, 0.2820 went down to 0.2662. A slight
+decrease, but nonetheless this is conclusive evidence that stemming does not lead to improvement.
+
+I then tested the results above (stem == false) against the following permutations with 
+remove stopwords == true to determine if removing stopwords led to better results:
+
+tfidf	False	True	cosine	1,1,1,1	0.3039	0.2098	0.0989	0.0380	0.2042	0.1843	0.4977	0.1520
+tfidf	False	True	jaccard	1,1,1,1	0.3039	0.2098	0.0989	0.0380	0.2042	0.1843	0.4977	0.1520
+tfidf	False	True	dice	1,1,1,1	0.3039	0.2098	0.0989	0.0380	0.2042	0.1843	0.4977	0.1520
+
+Here, removing stop words led to an improvement, e.g., at p_0.25 0.2820 went to 0.3039. This intuitively
+makes a lot of sense for a reason similar to why TF-IDF is better than just TF: stop words are generally
+uniformly distributed across documents (e.g., 'the' and 'of' occur a lot of times across many documents,
+whereas 'certainly' may only occur once or twice but it is still uniformly present) and thus they do 
+not reveal specific information about a particular document. In other words, they do not contribute
+useful information for signaling out a few particular documents since they tend to correspond many.
+As such, omitting them will give a greater weight to those terms which are not as prevelant and 
+are more useful for retrieving specific information pertaining only to a few, relevant documents.
+
+Lastly, I tested the region weightings, using the following results (cosine arbitrarily chosen for 
+similarity; it is identical to jaccard and dice):
+
+tfidf	False	True	cosine	1,1,1,1	0.3039	0.2098	0.0989	0.0380	0.2042	0.1843	0.4977	0.1520
+tfidf	False	True	cosine	1,3,4,1	0.3019	0.2172	0.0945	0.0289	0.2045	0.1897	0.4784	0.1449
+tfidf	False	True	cosine	1,1,1,4	0.2594	0.1557	0.0878	0.0503	0.1676	0.1556	0.4704	0.1338
+
+As demonstrated, the 1,1,1,1 weighting was slightly better at p_0.25 than 1,3,4,1 and much better than
+1,1,1,4. 1,1,1,1 was also slightly better than the rest at p_0.75.
+However, this improved performance was not constant. For example, 1,1,1,1 performed worse than 1,1,1,4 at
+p_1.0 one. Thus, there was not a definitive best choice and it was a factor of the desired precisions.
+However, averaging the three weightings over the four precisions, 1,1,1,1 was the best on average.

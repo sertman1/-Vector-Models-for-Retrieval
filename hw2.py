@@ -130,14 +130,15 @@ def compute_tfidf(doc, doc_freqs, weights):
     
     vec = defaultdict(float)
 
+    # the calculation for IDF(t) was derived from Scikit-Learn which effectively handles edge cases
     for word in doc.author:
-        vec[word] += tf[word] * np.log2(N / (freq[word] + 1)) # +1 to prevent divison by zero error
+        vec[word] += tf[word] * (np.log2((N + 1) / (freq[word] + 1)) + 1) # +1 to prevent divison by zero error
     for word in doc.keyword:
-        vec[word] += tf[word] * np.log2(N / (freq[word] + 1))
+        vec[word] += tf[word] * (np.log2((N + 1)/ (freq[word] + 1)) + 1)
     for word in doc.title:
-        vec[word] += tf[word] * np.log2(N / (freq[word] + 1))
+        vec[word] += tf[word] * (np.log2((N + 1) / (freq[word] + 1)) + 1)
     for word in doc.abstract:
-        vec[word] += tf[word] * np.log2(N / (freq[word] + 1))
+        vec[word] += tf[word] * (np.log2((N + 1) / (freq[word] + 1)) + 1)
 
     return dict(vec)
 
@@ -339,7 +340,7 @@ def experiment():
     permutations = [
         term_funcs,
         [False, True],  # stem
-        [False, True],  # remove stopwordsçpython3
+        [False, True],  # remove stopwords
         sim_funcs,
         [TermWeights(author=1, title=1, keyword=1, abstract=1),
             TermWeights(author=1, title=3, keyword=4, abstract=1),
