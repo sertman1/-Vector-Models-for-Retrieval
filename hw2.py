@@ -325,26 +325,26 @@ def experiment():
     stopwords = read_stopwords('common_words')
 
     term_funcs = {
-        'tf': compute_tf,
+        #'tf': compute_tf,
         'tfidf': compute_tfidf,
-        'boolean': compute_boolean
+        #'boolean': compute_boolean
     }
 
     sim_funcs = {
         'cosine': cosine_sim,
-        'jaccard': jaccard_sim,
-        'dice': dice_sim,
-        'overlap': overlap_sim
+        #'jaccard': jaccard_sim,
+        #'dice': dice_sim,
+        #'overlap': overlap_sim
     }
 
     permutations = [
         term_funcs,
-        [False, True],  # stem
-        [False, True],  # remove stopwords
+        [True], # [False, True],  # stem
+        [True], # [False, True],  # remove stopwords
         sim_funcs,
-        [TermWeights(author=1, title=1, keyword=1, abstract=1),
-            TermWeights(author=1, title=3, keyword=4, abstract=1),
-            TermWeights(author=1, title=1, keyword=1, abstract=4)]
+        [TermWeights(author=1, title=1, keyword=1, abstract=1),]
+            # TermWeights(author=1, title=3, keyword=4, abstract=1),
+            # TermWeights(author=1, title=1, keyword=1, abstract=4)]
     ]
 
     print('term', 'stem', 'removestop', 'sim', 'termweights', 'p_0.25', 'p_0.5', 'p_0.75', 'p_1.0', 'p_mean1', 'p_mean2', 'r_norm', 'p_norm', sep='\t')
@@ -362,6 +362,17 @@ def experiment():
             results = search(doc_vectors, query_vec, sim_funcs[sim])
             # results = search_debug(processed_docs, query, rels[query.doc_id], doc_vectors, query_vec, sim_funcs[sim])
             rel = rels[query.doc_id]
+
+            if query.doc_id == 6 or query.doc_id == 9 or query.doc_id == 22:
+                top20 = ""
+                print(query.doc_id)
+                for i in range(20):
+                    if results[i] in rel:
+                        top20 += "*"
+                    top20 += str(results[i])
+                    top20 += docs[results[i]].title
+                    top20 += "; "
+                print('\n')
 
             metrics.append([
                 precision_at(0.25, results, rel),
