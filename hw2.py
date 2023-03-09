@@ -131,13 +131,13 @@ def compute_tfidf(doc, doc_freqs, weights):
     vec = defaultdict(float)
 
     for word in doc.author:
-        vec[word] += tf[word] * np.log2(N / freq[word])
+        vec[word] += tf[word] * np.log2(N / (freq[word] + 1)) # +1 to prevent divison by zero error
     for word in doc.keyword:
-        vec[word] += tf[word] * np.log2(N / freq[word])
+        vec[word] += tf[word] * np.log2(N / (freq[word] + 1))
     for word in doc.title:
-        vec[word] += tf[word] * np.log2(N / freq[word])
+        vec[word] += tf[word] * np.log2(N / (freq[word] + 1))
     for word in doc.abstract:
-        vec[word] += tf[word] * np.log2(N / freq[word])
+        vec[word] += tf[word] * np.log2(N / (freq[word] + 1))
 
     return dict(vec)
 
@@ -237,9 +237,6 @@ def precision_at(recall: float, results: List[int], relevant: List[int]) -> floa
     `results` is a sorted list of document ids
     `relevant` is a list of relevant documents
 
-    # piazza 44
-    # want to be able to do it for arbitrary recall (10, 30, etc.)
-
     '''
     if recall == 0: # precision always 0 if recall is
         return 0 
@@ -318,7 +315,6 @@ def norm_precision(results, relevant):
 
 # TODO: put any extensions here
 
-
 ### Search
 
 def experiment():
@@ -343,7 +339,7 @@ def experiment():
     permutations = [
         term_funcs,
         [False, True],  # stem
-        [False, True],  # remove stopwords
+        [False, True],  # remove stopwordsçpython3
         sim_funcs,
         [TermWeights(author=1, title=1, keyword=1, abstract=1),
             TermWeights(author=1, title=3, keyword=4, abstract=1),
@@ -381,7 +377,8 @@ def experiment():
             for i in range(len(metrics[0]))]
         print(term, stem, removestop, sim, ','.join(map(str, term_weights)), *averages, sep='\t')
 
-        return  # TODO: just for testing; remove this when printing the full table
+        # return  # TODO: just for testing; remove this when printing the full table
+    return
 
 
 def process_docs_and_queries(docs, queries, stem, removestop, stopwords):
