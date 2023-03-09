@@ -1,7 +1,8 @@
 Conclusions:
 1. Term weighting permutations: TF-IDF is the definitive best choice
 2. Similarity measures: Cosine, Dice and Jaccard equal and superior to Overlap
-3. Stemming: FALSE (not stemming) is better
+3. Stemming: optimal choice depends on desired precision. Stemming == True was better at higher precisions.
+On average, though, the two performed equally.
 4. Stop words: TRUE (removing stopwords) is better
 5. Region weighting: optimal choice depended on desired precision. 1,1,1,1 performed best on average though.
 
@@ -61,8 +62,10 @@ tfidf	True	False	jaccard	1,1,1,1	0.2662	0.1807	0.0957	0.0421	0.1809	0.1746	0.544
 tfidf	True	False	dice	1,1,1,1	0.2662	0.1807	0.0957	0.0421	0.1809	0.1746	0.5444	0.1659
 
 Once again, cosine jaccard and dice all performed equally. Compared with the stem=FALSE results above,
-stemming actually made the results worse. For example, at p_0.25, 0.2820 went down to 0.2662. A slight
-decrease, but nonetheless this is conclusive evidence that stemming does not lead to improvement.
+stemming made the results better at p_0.5 and p_0.75 and p_1.0 but not p_0.25. On average, the two
+performed the same (since the difference at p_0.25 was quite large). From this, I concluded that 
+generally, stemming was not necessarily better or worse. However, at lower precision not stemming was better,
+and when precisions got higher, stemming was better.
 
 I then tested the results above (stem == false) against the following permutations with 
 remove stopwords == true to determine if removing stopwords led to better results:
