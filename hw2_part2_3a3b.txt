@@ -1,3 +1,5 @@
+NB THE DOCUMENT NUMBERS ARE OFFSET BY 1 SINCE THEY INDEX STARTING FROM 0
+
 1, (3a):
 TOP 20 RESULTS FOR QUERY NUMBER 6 WITH STEMMING = False
 *1543: Tele-cupl : A Telephone Time Sharing System 0.19361076395253962
@@ -337,4 +339,134 @@ query 20 vector term weights:
 
 
 3, (3a):
+239:
+240: Machine Calculation Of Moments Of A Probability Distribution 
+2341: Interference Between Communicating Parallel Processes 
+1184: A Program To Solve The Pentomino Problem By The Recursive Use Of Macros 
+1970: Recorded Magnetic Tape For Information Interchange ( 1600 Cpi , Phase Encoded ) * ( Proposed American National Standard ) 
+957: A Case Of Too Much Precision 
+1971: A Nonrecursive List Compacting Algorithm 
+2116: Representation For Calen Dar Date For Machine-to-machine Data Interchange * ( Proposed American National Standard ) 
+689: Usa Participation In An International Standard Glossary On Information Processing 
+316: On The Approximation Of Curves By Line Segments Using Dynamic Programming 
+408: Cl-1 , An Environment For A Compiler 
+411: Recursive Processes And Algol Translation 
+1280: Data Input By Question And Answer 
+1508: Recorded Magnetic Tape For Information Interchange ( 200 Cpi , Nrzi ) ( Proposed Usa Standard ) 
+719: Format-free Input In Fortran 
+261: Map 
+14: Recursive Curve Fitting Technique 
+77: Remarks On The Practical Solution Of Characteristic Value Problems 
+1433: A Monte Carlo Algorithm For Assigning Students To Classes 
+11: Error Estimation In Runge-kutta Procedures 
+1264: On The Relative Efficiencies Of Context-free Grammar Recognizers 
+
+1236:
+1237: A Technique For Integrated Reports From A Multi-run System 
+1684: Gan , A System For Generating And Analyzing Activity Networks 
+1548: An Efficient Machine-independent Procedure For Garbage Collection In Various List Structures 
+1172: The Performance Of A System For Automatic Segmentation Of Programs Within An Algol Compiler ( Gier Algol ) 
+2221: Comment On London 's Certification Of Algorithm 245 
+2053: On The Feasibility Of Voice Input To An On-line Computer Processing System 
+2616: A Note On Subexpression Ordering In The Evaluation Of Arithmetic Expressions 
+2453: Computational Algorithms For Closed Queueing Networks With Exponential Servers 
+2848: Ethernet : Distributed Packet Switching For Local Computer Networks 
+2598: First Order Approximation To The Optimum Checkpoint Interval 
+1095: On Avoiding Matrix Reversals Between 7090 Fortran Ii And 7090 Fortran Iv 
+3034: A Strategic Planning Methodology For The Computing Effort In Higher Education : An Empirical Evaluation 
+2492: Optimum Data Base Reorganization Points 
+2263: Derived Semantics For Some Programming Language Constructs 
+2856: Referencing Lists By An Edge 
+2517: Programming By Questionnaire : An Effective Way To Use Decision Tables 
+3053: Implementing Quicksort Programs 
+1488: Data , Documentation And Decision Tables 
+1327: Further Remarks On Reducing Truncation Errors 
+1252: Quikscript-a Simscript- Like Language For The G-20 
+
+2740:
+2741: Improved Event-scanning Mechanisms For Discrete Event Simulation 
+1711: Recovery Of Disk Contents After System Failure 
+1680: Easy English , A Language For Information Retrieval Through A Remote Typewriter Console 
+1747: A Scheduling Philosophy For Multiprocessing Systems 
+2357: The Multics Virtual Memory : Concepts And Design 
+1892: Roots Of Polynomials By A Root-squaring And Resultant Routine ( Algorithm 340 [ C2 ] ) 
+1769: Rules Of Ethics In Information Processing 
+2114: Fortran Tausworthe Pseudorandom Number Generator 
+1805: On The Downhill Method 
+2203: Program Development By Stepwise Refinement 
+2991: A Numbering System For Binary Trees 
+3143: A Model For And Discussion Of Multi-interpreter Systems 
+2632: Compact Representation Of Contour Plots For Phone Line Transmission 
+2299: Political Redistricting By Computer 
+2740: Decomposability , Instabilities , And Saturation In Multiprogramming Systems 
+1926: Information Science In A Ph.d. Computer Science Program 
+2411: Comment On Brent 's Scatter Storage Algorithm 
+3073: A Time- And Space- Efficient Garbage Compaction Algorithm 
+2059: Gedanken-a Simple Typeless Language Based On The Principle Of Completeness And The Reference Concept 
+2314: The Production Of Better Mathematical Software 
+
 3, (3b):
+239:
+2341: Interference Between Communicating Parallel Processes 
+1970: Recorded Magnetic Tape For Information Interchange ( 1600 Cpi , Phase Encoded ) * ( Proposed American National Standard ) 
+957: A Case Of Too Much Precision 
+1971: A Nonrecursive List Compacting Algorithm 
+2116: Representation For Calen Dar Date For Machine-to-machine Data Interchange * ( Proposed American National Standard ) 
+689: Usa Participation In An International Standard Glossary On Information Processing 
+316: On The Approximation Of Curves By Line Segments Using Dynamic Programming 
+3001: A Record And File Partitioning Model 
+408: Cl-1 , An Environment For A Compiler 
+1184: A Program To Solve The Pentomino Problem By The Recursive Use Of Macros 
+411: Recursive Processes And Algol Translation 
+1508: Recorded Magnetic Tape For Information Interchange ( 200 Cpi , Nrzi ) ( Proposed Usa Standard ) 
+1614: An Algorithm For Generating Root Locus Diagrams 
+77: Remarks On The Practical Solution Of Characteristic Value Problems 
+1960: An Efficient Search Algorithm To Find The Elementary Circuits Of A Graph 
+3043: A Note On Conditional Expressions 
+261: Map 
+2342: A Proposal To Establish A Pseudo Virtual Memory Via Writable Overlays 
+1117: Fortran Subroutines For Time Series Data Reduction * 
+
+1236:
+1237: A Technique For Integrated Reports From A Multi-run System 
+3034: A Strategic Planning Methodology For The Computing Effort In Higher Education : An Empirical Evaluation 
+1684: Gan , A System For Generating And Analyzing Activity Networks 
+2053: On The Feasibility Of Voice Input To An On-line Computer Processing System 
+1172: The Performance Of A System For Automatic Segmentation Of Programs Within An Algol Compiler ( Gier Algol ) 
+2453: Computational Algorithms For Closed Queueing Networks With Exponential Servers 
+2517: Programming By Questionnaire : An Effective Way To Use Decision Tables 
+2235: Remarks On Characteristic Values And Associated Solutions Of Mathieus Differential Equation , Exponential Integral , And Systems Of Hyperbolic P.d.e . ( Algorithms R352 , R385 , R392 ) 
+1994: Special Series Summation With Arbitrary Precision $ C6 ) ( Algorithm 393 ) 
+3176: How To Share A Secret 
+2598: First Order Approximation To The Optimum Checkpoint Interval 
+1548: An Efficient Machine-independent Procedure For Garbage Collection In Various List Structures 
+1327: Further Remarks On Reducing Truncation Errors 
+1488: Data , Documentation And Decision Tables 
+2221: Comment On London 's Certification Of Algorithm 245 
+1095: On Avoiding Matrix Reversals Between 7090 Fortran Ii And 7090 Fortran Iv 
+3053: Implementing Quicksort Programs 
+2263: Derived Semantics For Some Programming Language Constructs 
+2616: A Note On Subexpression Ordering In The Evaluation Of Arithmetic Expressions 
+2559: A Queuing Model Of A Multiprogrammed Computer With A Two-level Storage System 
+
+2740:
+2741: Improved Event-scanning Mechanisms For Discrete Event Simulation 
+1749: Considerations In The Design Of A Multiple Computer System With Extended Core Storage 
+2319: Structured Multiprogramming 
+1680: Easy English , A Language For Information Retrieval Through A Remote Typewriter Console 
+2379: Tenex , A Paged Time Sharing System For The Pdp-10 
+1341: Transportation Problem ( Algorithms 293 [ H ] ) 
+2542: Reducing The Retrieval Time Of Scatter Storage Techniques 
+1747: A Scheduling Philosophy For Multiprocessing Systems 
+1519: Absolute Value And Square Root Of A Complex Number ( Algorithm 312 [ A2 ] ) 
+2357: The Multics Virtual Memory : Concepts And Design 
+1892: Roots Of Polynomials By A Root-squaring And Resultant Routine ( Algorithm 340 [ C2 ] ) 
+2522: A Region Coloring Technique For Scene Analysis 
+2314: The Production Of Better Mathematical Software 
+1523: A Stopping Criterion For Polynomial Root Finding 
+2470: A Learning Program Which Plays Partnership Dominoes 
+2632: Compact Representation Of Contour Plots For Phone Line Transmission 
+2597: Extending The Information Theory Approach To Converting Limited-entry Decision Tables To Computer Programs 
+1264: On The Relative Efficiencies Of Context-free Grammar Recognizers 
+3089: Automated Welfare Client-tracking And Service Integration : The Political Economy Of Computing 
+2995: Transient-free Working-set Statistics 
