@@ -297,13 +297,31 @@ def norm_precision(results, relevant):
 
 ### Search
 def get_user_settings():
-    return 0
+    choice = input('\n Select term weight: (1) tf   (2) tf-idf  (3) boolean')
+    while choice != '1' and choice != '2' and choice != '3':
+        choice = input('\n Select term weight: (1) tf   (2) tf-idf  (3) boolean')
+    if choice == 1:
+        term_func = compute_tf
+    elif choice == 2:
+        term_func = compute_tfidf
+    else:
+        term_func = compute_boolean
+
+    choice = input('\n Stem tokens? (y/n)')
+    while choice != 'y' and choice != 'n'
+    if choice == 'y':
+        stem = True
+    else
+        stem = False
+    stem
+    removestop
+    sim
+    term_weights
+    return term_func, stem, removestop, sim, term_weights
 
 def experiment():
     docs = read_docs('cacm.raw')
     stopwords = read_stopwords('common_words')
-    processed_docs = process_docs_and_queries(docs, stem, removestop, stopwords)
-    doc_vectors = [term_func(doc, doc_freqs, term_weights) for doc in processed_docs]
 
     choice = input('\nWould you like to customize the search parameters or use recommended settings? (y/n) ')
     term_func = compute_tfidf
@@ -314,16 +332,19 @@ def experiment():
     if choice == 'y':
       term_func, stem, removestop, sim, term_weights = get_user_settings()
 
+    processed_docs = process_docs(docs, stem, removestop, stopwords)
+    doc_freqs = compute_doc_freqs(processed_docs)
+    doc_vectors = [term_func(doc, doc_freqs, term_weights) for doc in processed_docs]
+
     author = List[str]
     title = List[str]
     keyword = List[str]
     abstract = List[str]
     query = Document(0, author, title, keyword, abstract)
-    doc_freqs = compute_doc_freqs(processed_docs)
 
     print('\nENTER Q AT ANY TIME TO QUIT\n')
     while choice != 'q' and choice != 'Q':
-      print('ENTER YOUR QUERIES FOR THE FOLLOWING FIELDS:\n')
+      print('ENTER YOUR QUERIES FOR THE FOLLOWING FIELDS:')
 
       author_string = input('Author: ')
       choice = author_string
@@ -340,24 +361,42 @@ def experiment():
       abstract = word_tokenize(abstract_string)
 
       query = Document(0, author, title, keyword, abstract)
+
+      if removestop:
+        query = remove_stopwords_doc(query)
+      if stem:
+        query = stem_doc(query)
+
       query_vec = term_func(query, doc_freqs, term_weights)
       results = search(doc_vectors, query_vec, sim)
 
-      print(results)
+      print('\nHere are the top 10 document ids pertaining to your queries:')
+      i = 0
+      last_doc = 10
+      while i < last_doc:
+        print(results[i])
+        i += 1
+      last_doc += 10
+
+      choice = input('\nWould you like to see the next 10 documents? (y/n) ')
+      while (choice == 'y' or choice == 'Y') and i < len(results):
+        while i < last_doc:
+            print(results[i])
+            i += 1
+        choice = input('\nWould you like to see the next 10 documents? (y/n) ')
+        last_doc += 10
+    print('\n')
 
     return 
 
 
-def process_docs_and_queries(docs, queries, stem, removestop, stopwords):
+def process_docs(docs, stem, removestop, stopwords):
     processed_docs = docs
-    processed_queries = queries
     if removestop:
         processed_docs = remove_stopwords(processed_docs)
-        processed_queries = remove_stopwords(processed_queries)
     if stem:
         processed_docs = stem_docs(processed_docs)
-        processed_queries = stem_docs(processed_queries)
-    return processed_docs, processed_queries
+    return processed_docs
 
 def search(doc_vectors, query_vec, sim):
     results_with_score = [(doc_id + 1, sim(query_vec, doc_vec))
