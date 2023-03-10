@@ -318,18 +318,16 @@ def norm_precision(results, relevant):
 # TODO: put any extensions here
 def generate_bigrams(words):
     punction = ['.',':',',','?',')','(',']','[','"', "{", "}"] # not to be considered unigrams
-    # NB PUNCTUTION
     bigrams = list()
-
     for i in range(len(words) - 1): # generate bigrams, excluding bigrams
-        if words[i] not in stopwords and words[i] not in punction: # punction marks or stopwords can never start a bigram
-            if words[i + 1] not in stopwords:
-                if words[i + 1] in punction:
-                    unigram = words[i] + words[i + 1] # e.g., "dr.", not "dr ."
-                    if i + 2 < len(words) and words[i + 2] not in stopwords:
-                        bigrams += unigram + words[i + 2]
-                else:
-                    bigrams += words[i] + " " + words[i + 1]
+          if words[i] not in stopwords and words[i] not in punction: # punction marks or stopwords can never start a bigram
+              if words[i + 1] not in stopwords:
+                  if words[i + 1] in punction:
+                      unigram = words[i] + words[i + 1] # e.g., "dr.", not "dr ."
+                      if i + 2 < len(words) and words[i + 2] not in stopwords:
+                          bigrams.append(unigram + words[i + 2])
+                  else:
+                      bigrams.append(str(words[i] + " " + words[i + 1]))
     
     return bigrams
 
@@ -341,7 +339,7 @@ def augment_to_bigrams(docs):
       augmented_title = generate_bigrams(doc.title)
       augmented_keyword = generate_bigrams(doc.keyword)
       augmented_abstract = generate_bigrams(doc.abstract)
-      
+    
       augmented_doc = Document(doc.doc_id,
                                doc.author + augmented_author,
                                doc.title + augmented_title,
@@ -389,6 +387,7 @@ def experiment():
     # This loop goes through all permutations. You might want to test with specific permutations first
     for term, stem, removestop, sim, term_weights in itertools.product(*permutations):
         processed_docs, processed_queries = process_docs_and_queries(docs, queries, stem, removestop, stopwords)
+        print(processed_docs)
         doc_freqs = compute_doc_freqs(processed_docs)
         doc_vectors = [term_funcs[term](doc, doc_freqs, term_weights) for doc in processed_docs]
 
