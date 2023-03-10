@@ -6,7 +6,7 @@ from typing import Dict, List, NamedTuple
 import numpy as np
 from numpy.linalg import norm
 from nltk.stem.snowball import SnowballStemmer
-from nltk.tokenize import word_tokenizeQ
+from nltk.tokenize import word_tokenize
 
 ### File IO and processing
 
@@ -302,38 +302,69 @@ def get_user_settings():
 def experiment():
     docs = read_docs('cacm.raw')
     stopwords = read_stopwords('common_words')
+    processed_docs = process_docs_and_queries(docs, stem, removestop, stopwords)
+    doc_vectors = [term_func(doc, doc_freqs, term_weights) for doc in processed_docs]
 
-    # This loop goes through all permutations. You might want to test with specific permutations first
-    print('\nWould you like to customize the search parameters or use recommended settings? (y)')
-    choice = ''
+    choice = input('\nWould you like to customize the search parameters or use recommended settings? (y/n) ')
     term_func = compute_tfidf
     stem = True
     removestop = True
+    sim = cosine_sim
     term_weights = TermWeights(author=1, title=1, keyword=1, abstract=1)
     if choice == 'y':
-      term_func, stem, removestop, term_weights = get_user_settings()
+      term_func, stem, removestop, sim, term_weights = get_user_settings()
 
-    query = Document(0, [],[],[],[])
+    author = List[str]
+    title = List[str]
+    keyword = List[str]
+    abstract = List[str]
+    query = Document(0, author, title, keyword, abstract)
+    doc_freqs = compute_doc_freqs(processed_docs)
 
-    while choice != 'q' or choice != 'Q':
+    print('\nENTER Q AT ANY TIME TO QUIT\n')
+    while choice != 'q' and choice != 'Q':
+      print('ENTER YOUR QUERIES FOR THE FOLLOWING FIELDS:\n')
 
-      print('\nENTER Q TO QUIT')
+      author_string = input('Author: ')
+      choice = author_string
+      title_string = input('Title: ')
+      choice = title_string
+      keyword_string = input('Keyword: ')
+      choice = keyword_string
+      abstract_string = input('Abstract: ')
+      choice = abstract_string
 
-      processed_docs = process_docs(docs, stem, removestop, stopwords)
-      doc_freqs = compute_doc_freqs(processed_docs)
+      author = word_tokenize(author_string)
+      title = word_tokenize(title_string)
+      keyword = word_tokenize(keyword_string)
+      abstract = word_tokenize(abstract_string)
 
+      query = Document(0, author, title, keyword, abstract)
       query_vec = term_func(query, doc_freqs, term_weights)
+      results = search(doc_vectors, query_vec, sim)
+
+      print(results)
 
     return 
 
 
-def process_docs(docs, stem, removestop, stopwords):
+def process_docs_and_queries(docs, queries, stem, removestop, stopwords):
     processed_docs = docs
+    processed_queries = queries
     if removestop:
         processed_docs = remove_stopwords(processed_docs)
+        processed_queries = remove_stopwords(processed_queries)
     if stem:
         processed_docs = stem_docs(processed_docs)
-    return processed_docs
+        processed_queries = stem_docs(processed_queries)
+    return processed_docs, processed_queries
+
+def search(doc_vectors, query_vec, sim):
+    results_with_score = [(doc_id + 1, sim(query_vec, doc_vec))
+                    for doc_id, doc_vec in enumerate(doc_vectors)]
+    results_with_score = sorted(results_with_score, key=lambda x: -x[1])
+    results = [x[0] for x in results_with_score]
+    return results
 
 
 if __name__ == '__main__':
