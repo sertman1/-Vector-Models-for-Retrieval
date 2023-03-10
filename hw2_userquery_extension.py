@@ -308,15 +308,39 @@ def get_user_settings():
         term_func = compute_boolean
 
     choice = input('\n Stem tokens? (y/n)')
-    while choice != 'y' and choice != 'n'
+    while choice != 'y' and choice != 'n':
+        choice = input('\n Stem tokens? (y/n)')
     if choice == 'y':
         stem = True
-    else
+    else:
         stem = False
-    stem
-    removestop
-    sim
-    term_weights
+    
+    choice = input('\n Remove stopwords? (y/n)')
+    while choice != 'y' and choice != 'n':
+        choice = input('\n Remove stopwords? (y/n)')
+    if choice == 'y':
+        removestop = True
+    else:
+        removestop = False
+
+    choice = input('\n Select similarity measure: (1) cosine   (2) dice   (3) jaccard   (4) overlap')
+    while choice != '1' and choice != '2' and choice != '3' and choice != '4':
+        choice = input('\n Select similarity measure: (1) cosine   (2) dice   (3) jaccard   (4) overlap')
+    if choice == 1:
+        sim = cosine_sim
+    elif choice == 2:
+        sim = dice_sim
+    elif choice == 3:
+        sim = jaccard_sim
+    elif choice == 4:
+        sim = overlap_sim
+
+    author_weight = int(input('\n Enter weight for author: '))
+    title_weight = int(input('\n Enter weight for title: '))
+    keyword_weight = int(input('\n Enter weight for keyword: '))
+    abstract_weight = int(input('\n Enter weight for abstract: '))
+
+    term_weights = TermWeights(author_weight, title_weight, keyword_weight, abstract_weight)
     return term_func, stem, removestop, sim, term_weights
 
 def experiment():
