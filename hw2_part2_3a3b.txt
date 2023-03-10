@@ -1,16 +1,141 @@
 1, (3a):
-6: 1543, 2826, 242, 3035, 2753, 2828, 2671, 435, 492, 1009, 2389, 2078, 1014, 1365, 1234, 530, 3188, 531, 888, 1186
+TOP 20 RESULTS FOR QUERY NUMBER 6 WITH STEMMING = False
+*1543: Tele-cupl : A Telephone Time Sharing System 0.19361076395253962
+2826: A Parametric Algorithm For Drawing Pictures Of Solid Objects Composed Of Quadric Surfaces 0.1192415714620603
+242: N-dimensional Codes For Detecting And Correcting Multiple Errors 0.11767841197381562
+3035: The Selection Of Optimal Tab Settings 0.10966907557227369
+2753: A Syntactic Algorithm For Peak Detection In Waveforms With Applications To Cardiography 0.09647110615270389
+*2828: Texture And Reflection In Computer Generated Images 0.092837322133439
+2671: Emotional Content Considered Dangerous 0.09025877922644866
+435: Evaluation Of Polynomials By Computer 0.08414251182285983
+492: The Property Classification Method Of File Design And Processing 0.08411615704640169
+1009: A Multiuser Computation Facility For Education And Research 0.08196588940153211
+2389: A Proposal For A Computer-based Interactive Scientific Community 0.07732708944281781
+*2078: On Multiprogramming , Machine Coding , And Computer Organization 0.07660632080056975
+1014: Near-minimax Polynomial Approximations And Partitioning Of Intervals 0.07103384455966352
+1365: Computer Simulation-discussion Of The Technique And Comparison Of Languages 0.06487561879537376
+1234: A Stochastic Approach To The Grammatical Coding Of English 0.06485761013586687
+530: Person-matching By Electronic Methods 0.05995797733855976
+3188: An Algebraic Compiler For The Fortran Assembly Program 0.058051348582244616
+531: On The Computation Of Rational Approximations To Continuous Functions 0.05726415451727269
+888: Official Actions And Responses To Algol As A Programming Language 0.056656512582015345
+1186: Note On An Ascii-octal Code Table ( Standards ) 0.05484132693638201
 
-9: 3068, 2372, 2345, 2407, 2138, 2311, 1387, 3150, 1341, 2479, 1462, 1324, 1572, 1959, 1844, 435, 2776, 2317, 2198, 2151
 
-22: 2341, 2924, 3166, 1769, 2632, 2203, 1711, 1680, 1747, 3143, 2114, 2931, 2991, 1805, 2299, 1926, 2059, 2357, 3094, 1726
+TOP 20 RESULTS FOR QUERY NUMBER 9 WITH STEMMING = False
+*3068: A Practical Interprocedural Data Flow Analysis Algorithm 0.5008600976232547
+*2372: Properties Of The Working-set Model 0.49287489920273103
+2345: Hu-tucker Minimum Redundancy Alphabetic Coding Method [ Z ] ( Algorithm A428 ) 0.4573433505023771
+2407: Solving The Biharmonic Equation In A Square : A Direct Versus A Semidirect Method 0.4232962187343165
+2138: Implementation Of The Substring Test By Hashing 0.4216262930881166
+2311: On The Present And Future Of Scientific Computation 0.40755165609671873
+1387: Automast : Automatic Mathematical Analysis And Symbolic Translation 0.40096287976934264
+3150: An Optimal Real-time Algorithm For Planar Convex Hulls 0.3975831341830437
+1341: Transportation Problem ( Algorithms 293 [ H ] ) 0.39476639587978024
+2479: Teaching `` About Programming '' 0.379211904883335
+1462: More On Extensible Machines 0.3420991713440839
+1324: Remote , On-line , Real-time Computer Diagnosis Of The Clinical Electrocardiogram 0.3371659855689329
+1572: An Adaptive Quadrature Procedure With Random Panel Sizes ( Algorithm [ D1 ] ) 0.3209236929257879
+1959: Process Management And Resource Sharing In The Multiaccess System Esope 0.32017532762598877
+1844: Loader Standardization For Overlay Programs 0.3152986706130807
+435: Evaluation Of Polynomials By Computer 0.3149412966141294
+2776: On A Solution To The Cigarette Smoker 's Problem ( Without Conditional Statements ) 0.3112200551994695
+2317: The Role Of Computer System Models In Performance Evaluation 0.30700879173515766
+2198: A Sparse Matrix Package ( Part I ) [ F4 ] ( Algorithm 408 ) 0.3060859412525098
+2151: Display Procedures 0.3050334564929267
+
+
+TOP 20 RESULTS FOR QUERY NUMBER 22 WITH STEMMING = False
+2341: Interference Between Communicating Parallel Processes 0.25944805518146435
+2924: Optimal Surface Reconstruction From Planar Contours 0.25907202621614084
+3166: Updating Mean And Variance Estimates : An Improved Method 0.2581422505540818
+1769: Rules Of Ethics In Information Processing 0.2561994458573951
+2632: Compact Representation Of Contour Plots For Phone Line Transmission 0.254688953590016
+2203: Program Development By Stepwise Refinement 0.2540792735060304
+1711: Recovery Of Disk Contents After System Failure 0.2532372479830752
+1680: Easy English , A Language For Information Retrieval Through A Remote Typewriter Console 0.25245531872556165
+1747: A Scheduling Philosophy For Multiprocessing Systems 0.2506737488884354
+3143: A Model For And Discussion Of Multi-interpreter Systems 0.2467018217703326
+2114: Fortran Tausworthe Pseudorandom Number Generator 0.24553218464832813
+2931: Complexity Of Computations 0.2444912585804464
+2991: A Numbering System For Binary Trees 0.24420130155981967
+1805: On The Downhill Method 0.24418251964510906
+2299: Political Redistricting By Computer 0.24379252722154082
+1926: Information Science In A Ph.d. Computer Science Program 0.24369295137195507
+2059: Gedanken-a Simple Typeless Language Based On The Principle Of Completeness And The Reference Concept 0.24346202947188095
+2357: The Multics Virtual Memory : Concepts And Design 0.24340827905922094
+3094: A Selective Traversal Algorithm For Binary Search Trees 0.2426370993688599
+1726: One Way Of Estimating Frequencies Of Jumps In A Program 0.24251648102522635
 
 1, (3b):
-6: 136, 356, 740, 1543, 1397, 1517, 1009, 3035, 2671, 2828, 1755, 242, 2753, 2078, 2826, 1046, 254, 616, 964, 2389
+TOP 20 RESULTS FOR QUERY NUMBER 6 WITH STEMMING = True
+136: Evaluating Numbers Expressed As Strings Of English Words 0.2292657217678071
+356: Bessel Functions Computed Recursively ( Algorithm 44 ) 0.20361495289106796
+740: Evaluation Of Determinant ( Algorithm 41 ) 0.20294044902671543
+*1543: Tele-cupl : A Telephone Time Sharing System 0.19444010274539095
+1397: Robot Data Screening : A Solution To Multivariate Type Problems In The Biological And Social Sciences 0.1536620878194023
+1517: An Experimental Model Of System/360 0.13307576866205725
+1009: A Multiuser Computation Facility For Education And Research 0.1118757072157156
+3035: The Selection Of Optimal Tab Settings 0.10948468383249488
+2671: Emotional Content Considered Dangerous 0.10830963347433181
+*2828: Texture And Reflection In Computer Generated Images 0.10014732131901502
+1755: Hollerith Punched Card Code * ( Proposed Usa Standard ) 0.09810200198271879
+242: N-dimensional Codes For Detecting And Correcting Multiple Errors 0.09764976070493707
+2753: A Syntactic Algorithm For Peak Detection In Waveforms With Applications To Cardiography 0.09503848817553623
+*2078: On Multiprogramming , Machine Coding , And Computer Organization 0.09232398501760807
+2826: A Parametric Algorithm For Drawing Pictures Of Solid Objects Composed Of Quadric Surfaces 0.08384867874067634
+1046: Generation Of Test Matrices By Similarity Transformations 0.08289323081074819
+254: Augmentation ( Algorithm 68 ) 0.08077097985129576
+616: Poseidon 0.0737141542826924
+964: Greatest Common Divisor ( Algorithm 237 [ A1 ] ) 0.07340963645955592
+2389: A Proposal For A Computer-based Interactive Scientific Community 0.07333453302267938
 
-9: 1685, 2776, 2951, 1695, 2614, 2949, 2371, 2197, 1261, 2515, 2969, 1611, 1723, 3158, 1688, 2372, 1687, 1690, 2088, 3068
 
-22: 1889, 1769, 1589, 1711, 2357, 2931, 1747, 1680, 1726, 2299, 2632, 2707, 3143, 2114, 2203, 2743, 1947, 2879, 2631, 2313
+TOP 20 RESULTS FOR QUERY NUMBER 9 WITH STEMMING = True
+1685: Computer Synthesis Of Holograms For 3-d Display 0.7582789287971032
+2776: On A Solution To The Cigarette Smoker 's Problem ( Without Conditional Statements ) 0.7567403991145765
+2951: Functions Realizable With Word-parallel Logical And Two's-complement Addition Instructions 0.7215428704832606
+1695: An Algorithm For Identifying The Ergodic Subchains And Transient States Of A Stochastic Matrix 0.6880357860812508
+2614: Procedures For Computing Smoothing And Interpolating Natural Splines [ E1 ] ( Algorithm A480 ) 0.6470025870206038
+2949: A Unifying Approach To Scheduling 0.6428552195924853
+2371: On The Implementation Of Security Measures In Information Systems 0.6360732503837618
+2197: Introduction To `` Feature Analysis Of Generalized Data Base Management Systems '' 0.6180066401296527
+1261: Procedure-oriented Language Statements To Facilitate Parallel Processing 0.5453129877793917
+2515: Hierarchical Storage In Information Retrieval 0.5085262769664758
+2969: Achieving Specific Accuracy In Simulation Output Analysis 0.49667553377470686
+1611: Top-to-bottom Parsing Rehabilitated ? 0.4902415706475532
+1723: A Generalized Partial Pass Block Sort 0.47875657883398587
+*3158: Further Remark On Stably Updating Mean And Standard Deviation Estimates 0.4770342758138696
+1688: Calculation Of A Polynomial And Its Derivative Values By Horner Scheme ( Algorithm 337 [ C1 ] ) 0.4243655443147956
+*2372: Properties Of The Working-set Model 0.40473299824184666
+1687: Netflow ( Algorithm 248 [ H ] ) 0.4009018065448004
+1690: A Comparison Of The Correlational Behavior Of Random Number Generators For The Ibm 360 0.40039979066405285
+2088: Prime Number ( Algorithm 310 $ A1 ) ) 0.39601667796836365
+*3068: A Practical Interprocedural Data Flow Analysis Algorithm 0.3937050105367937
+
+
+TOP 20 RESULTS FOR QUERY NUMBER 22 WITH STEMMING = True
+1889: Simulation Of Traffic Flows In A Network 0.2911529911455986
+1769: Rules Of Ethics In Information Processing 0.2903128793429246
+1589: Pitch Period Determination Of Speech Sounds 0.28195710770996435
+1711: Recovery Of Disk Contents After System Failure 0.28042526066527684
+2357: The Multics Virtual Memory : Concepts And Design 0.27918331012073994
+2931: Complexity Of Computations 0.27806725909547436
+1747: A Scheduling Philosophy For Multiprocessing Systems 0.27806247865750394
+1680: Easy English , A Language For Information Retrieval Through A Remote Typewriter Console 0.2756195330185039
+1726: One Way Of Estimating Frequencies Of Jumps In A Program 0.27440716153598715
+2299: Political Redistricting By Computer 0.27308096551470024
+2632: Compact Representation Of Contour Plots For Phone Line Transmission 0.2725787353892862
+2707: Practical Syntactic Error Recovery 0.27209718973352287
+3143: A Model For And Discussion Of Multi-interpreter Systems 0.27201682627397505
+2114: Fortran Tausworthe Pseudorandom Number Generator 0.2712677006142799
+2203: Program Development By Stepwise Refinement 0.2707267544156313
+2743: Addition In An Arbitrary Base Without Radix Conversion 0.2677685884349153
+1947: Computers In Group Theory : A Survey 0.26717992178956795
+2879: A Fast Division Technique For Constant Divisors 0.263877847678851
+2631: Hydra : The Kernel Of A Multiprocessor Operating System 0.2636553211232339
+2313: Requirements For Advanced Programming Systems For List Processing 0.2635855014618538
+
 
 2, (3a):
 2, (3b):
